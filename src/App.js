@@ -1,5 +1,6 @@
 import './App.css';
 import MenuItem from './components/MenuItem';
+import Header from './components/Header';
 
 // import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
 
@@ -78,15 +79,23 @@ const menuItems = [
   }
 ];
 
+const header_img = "logo192.png";
+const header_slogan = "Straight from the Source";
+const header_label = "Japanese Food!";
+
 
 function App() {
   return (
-    <div>
-      <h1>Menu</h1>
-      <div className="menu">
-        {/* Display menu items dynamicaly here by iterating over the provided menuItems */}
-        <MenuItem title={menuItems[0].title} /> {/* Example for how to use a component */}
-      </div>
+    <div class="container-fluid">
+        <Header img={header_img} label={header_label} slogan={header_slogan}/>
+        <div class="container">
+          <div class="row">
+              {/* Display menu items dynamicaly here by iterating over the provided menuItems */}
+                {menuItems.map((mitem) => (
+                    <MenuItem menuItem={mitem} /> 
+              ))}
+            </div>
+          </div>
     </div>
   );
 }
